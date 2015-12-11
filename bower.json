@@ -1,0 +1,42 @@
+{
+  "name": "ebp-ui",
+  "version": "1.0.0",
+  "authors": [
+    "yao <ysnlvlqw@msn.com>"
+  ],
+  "description": "Provider some useful angular utils for EBP platform.",
+  "main": [
+    "dist/ebp-ui.min.js",
+    "dist/ebp-ui.min.css"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals"
+  ],
+  "keywords": [
+    "angular",
+    "ng",
+    "utils",
+    "ebp"
+  ],
+  "license": "MIT",
+  "homepage": "http://114.215.109.39",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.4",
+    "angular-animate": "~1.4.4"
+  },
+  "overwrites": {},
+  "devDependencies": {
+    "angular-ui-router": "~0.2.15",
+    "bootstrap-sass-official": "~3.3.5"
+  }
+}

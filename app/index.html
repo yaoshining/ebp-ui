@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="ebpUIDemo">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EBP UI</title>
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</head>
+<body>
+<div ebp-layout="column" ui-view="body">
+    <div class="site-sidebar" ebp-layout-container="272px">
+        <div ui-sref="main" class="site-logo">
+            <img src="assets/images/logo.svg" height="150" />
+            <h1 class="site-logo-name">Angular EBP UI</h1>
+        </div>
+        <div class="site-menus">
+            <ul class="site-navs">
+                <li class="parent-menu" ui-sref-active="active">
+                    <h2>API参考手册</h2>
+                    <ul class="sub-navs">
+                        <li>
+                            <a ui-sref="layout">布局</a>
+                            <ul class="sub-navs">
+                                <li>
+                                    <a ui-sref="layout.intro">简介</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="layout.container">布局容器</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a ui-sref="framework">框架</a>
+                            <ul class="sub-navs">
+                                <li>
+                                    <a ui-sref="framework.intro">简介</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="framework.components">框架组件</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="site-main" ebp-layout-container>
+        <div ebp-layout>
+            <div class="site-navbar" ebp-layout-container="64px">
+                <span class="site-breadcrumb">Angular EBP UI</span>
+            </div>
+            <div class="site-content" ebp-layout-container>
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- build:js(src) scripts/vendor.js -->
+<!-- bower:js -->
+<!-- run `gulp inject` to automatically populate bower script dependencies -->
+<!-- endbower -->
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbuild -->
+
+<!-- build:js({.tmp/serve,.tmp/partials}) scripts/app.js -->
+<!-- inject:js -->
+<!-- js files will be automatically insert here -->
+<!-- endinject -->
+</body>
+</html>

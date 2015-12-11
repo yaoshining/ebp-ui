@@ -1,0 +1,16 @@
+$layout-size-collection: (1, 2, 3, 4, 5, 6, 7);
+
+.ebp-layout {
+  height: 100%;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  &[ebp-layout="column"] {
+    & > .ebp-layout-container {
+      float: left;
+      position: relative;
+    }
+  }
+}
