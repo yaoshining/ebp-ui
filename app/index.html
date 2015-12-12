@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="ebpUIDemo">
-<head lang="en">
+<head lang="zh">
     <meta charset="UTF-8">
     <title>EBP UI</title>
 
@@ -25,16 +25,16 @@
         </div>
         <div class="site-menus">
             <ul class="site-navs">
-                <li class="parent-menu" ui-sref-active="active">
+                <li class="parent-menu">
                     <h2>API参考手册</h2>
                     <ul class="sub-navs">
                         <li>
                             <a ui-sref="layout">布局</a>
                             <ul class="sub-navs">
-                                <li>
+                                <li ui-sref-active="active">
                                     <a ui-sref="layout.intro">简介</a>
                                 </li>
-                                <li>
+                                <li ui-sref-active="active">
                                     <a ui-sref="layout.container">布局容器</a>
                                 </li>
                             </ul>
@@ -42,10 +42,10 @@
                         <li>
                             <a ui-sref="framework">框架</a>
                             <ul class="sub-navs">
-                                <li>
+                                <li ui-sref-active="active">
                                     <a ui-sref="framework.intro">简介</a>
                                 </li>
-                                <li>
+                                <li ui-sref-active="active">
                                     <a ui-sref="framework.components">框架组件</a>
                                 </li>
                             </ul>

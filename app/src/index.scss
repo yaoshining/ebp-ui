@@ -3,6 +3,7 @@
 $icon-font-path: '../../bower_components/bootstrap-sass-official/assets/';
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "layouts/layouts";
+@import "framework/framework";
 
 html, body {
   height: 100%;
@@ -23,6 +24,9 @@ html, body {
     padding: 0;
     margin: 0;
     font-size: 16px;
+    li.active {
+      background-color: #267ED5;
+    }
     & > li.parent-menu {
       border-bottom: 1px solid #267ED5;
       & > h2 {
@@ -58,9 +62,6 @@ html, body {
         line-height: 40px;
         padding: 0 16px;
         position: relative;
-      }
-      &.active {
-        background-color: #267ED5;
       }
       &.has-child {
         & > a:before {
