@@ -1,0 +1,14 @@
+.ebp-framework {
+  display: block;
+  position: relative;
+  height: 100%; }
+
+.ebp-layout {
+  height: 100%; }
+  .ebp-layout:after {
+    content: '';
+    display: table;
+    clear: both; }
+  .ebp-layout[ebp-layout="column"] > .ebp-layout-container {
+    float: left;
+    position: relative; }
