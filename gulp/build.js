@@ -17,7 +17,7 @@ gulp.task('partials',function() {
         }))
         .pipe($.angularTemplatecache('templateCacheHtml.js', {
             module: 'ebp-ui',
-            root: conf.paths.src
+            root: 'src'
         }))
         .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });

@@ -101,6 +101,15 @@
   color: inherit;
   text-decoration: none; }
 
+.ebp-listview {
+  box-shadow: 0 0 3px #ddd;
+  border-top: #ddd 1px solid;
+  border-bottom: #ddd 1px solid; }
+  .ebp-listview .ebp-listview-toolbar {
+    padding: 15px;
+    background-image: -webkit-linear-gradient(top, #f9f9f9, #e6e6e6);
+    background-image: linear-gradient(top, #f9f9f9, #e6e6e6); }
+
 .ebp-layout {
   height: 100%; }
   .ebp-layout:after {
@@ -110,15 +119,6 @@
   .ebp-layout[ebp-layout="column"] > .ebp-layout-container {
     float: left;
     position: relative; }
-
-.ebp-listview {
-  box-shadow: 0 0 3px #ddd;
-  border-top: #ddd 1px solid;
-  border-bottom: #ddd 1px solid; }
-  .ebp-listview .ebp-listview-toolbar {
-    padding: 15px;
-    background-image: -webkit-linear-gradient(top, #f9f9f9, #e6e6e6);
-    background-image: linear-gradient(top, #f9f9f9, #e6e6e6); }
 
 .ebp-table table {
   width: 100%;
