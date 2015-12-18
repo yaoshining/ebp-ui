@@ -2,6 +2,7 @@
  * Created by yao on 15/12/11.
  */
 function EbpFrameworkDirectiveFactory() {
+    'ngInject';
     function linkFunc(scope, elem, attrs) {
         let themeName = '';
         attrs.$observe('theme', (theme) => {

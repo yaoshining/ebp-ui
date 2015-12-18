@@ -1,5 +1,88 @@
-<div ebp-framework theme="a">
-    <div ebp-navbar>
-
-    </div>
-</div>
+<section ebp-framework theme="a" ng-controller="ComponentsController">
+    <!--<header ebp-navbar>-->
+        <!--navbar-->
+    <!--</header>-->
+    <main ebp-framework-container>
+        <aside ebp-sidenav theme="a" ng-model="sidebar.data">
+        </aside>
+        <div ebp-ui-content>
+            <div class="ebp-content-sidebar">
+                <div class="ebp-nav-title">
+                    我的任务
+                </div>
+                <nav class="ebp-nav-list">
+                    <ul>
+                       <li class="active">
+                           <a href>
+                               <i class="ebp-icon glyphicon glyphicon-tasks"></i>
+                               所有任务(0)
+                           </a>
+                       </li>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-time"></i>
+                                正在进行(0)
+                            </a>
+                        </li>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-check"></i>
+                                已完成()
+                            </a>
+                        </li>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-eye-open"></i>
+                                我关注的()
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <hr style="border-bottom: 1px solid rgb(204,204,204);">
+                <nav class="ebp-nav-list">
+                    <ul>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-tasks"></i>
+                                所有任务(0)
+                            </a>
+                        </li>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-time"></i>
+                                正在进行(0)
+                            </a>
+                        </li>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-check"></i>
+                                已完成()
+                            </a>
+                        </li>
+                        <li>
+                            <a href>
+                                <i class="ebp-icon glyphicon glyphicon-eye-open"></i>
+                                我关注的()
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="ebp-content-main">
+                <div ebp-listview>
+                    <div ebp-listview-toolbar>
+                        <a class="btn btn-sm btn-primary" ng-click="alert('新增')">新增</a>
+                        <a class="btn btn-sm btn-success" ng-click="alert('刷新权限')">刷新权限</a>
+                        <a class="btn btn-sm btn-danger" ng-click="alert('刷新组织机构')">刷新组织机构</a>
+                        <a class="btn btn-sm btn-info" ng-click="$ebpList.changeView('table')">
+                            <i class="fa fa-list-alt"></i>
+                        </a>
+                        <a class="btn btn-sm btn-warning" ng-click="$ebpList.changeView('grid')">
+                            <i class="fa fa-th"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>

@@ -3,6 +3,23 @@
     <div>EBP框架包括：</div>
     <ol>
         <li>导航条(Navbar)</li>
-        <li>工具栏(Sidebar)</li>
+        <li>边栏(Sidebar)</li>
+        <li>边栏导航(Sidenav)</li>
+        <li>内容区(Content)</li>
     </ol>
+    <div style="height: 200px">
+        <div ebp-framework>
+            <div ebp-navbar style="color: #fff">导航条</div>
+            <div ebp-framework-container>
+                <div ebp-sidenav>边栏导航</div>
+                <div ebp-ui-content style="background-color: yellow;height: 100%">
+                    <div ebp-sidebar style="background-color: red">边栏</div>
+                    内容区
+                </div>
+            </div>
+        </div>
+    </div>
+</p>
+<p>
+    框架, 导航条, 边栏导航都可以定义由a-z表示的26个主题风格, 并且可以相互组合, 方便以后扩展样式
 </p>

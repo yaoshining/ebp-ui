@@ -1,0 +1,9 @@
+.ebp-listview {
+  box-shadow: 0 0 3px #ddd;
+  border-top: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  .ebp-listview-toolbar {
+    padding: 15px;
+    background-image: linear-gradient(top, #f9f9f9, #e6e6e6);
+  }
+}

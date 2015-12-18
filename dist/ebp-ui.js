@@ -50,7 +50,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -63,7 +63,15 @@
 
 	var _frameworkFrameworkModule2 = _interopRequireDefault(_frameworkFrameworkModule);
 
-	var ebpUI = angular.module('ebp-ui', [_layoutsLayoutsModule2['default'].name, _frameworkFrameworkModule2['default'].name]);
+	var _listviewListviewModule = __webpack_require__(14);
+
+	var _listviewListviewModule2 = _interopRequireDefault(_listviewListviewModule);
+
+	var _tableTableModule = __webpack_require__(18);
+
+	var _tableTableModule2 = _interopRequireDefault(_tableTableModule);
+
+	var ebpUI = angular.module('ebp-ui', [_layoutsLayoutsModule2['default'].name, _frameworkFrameworkModule2['default'].name, _listviewListviewModule2['default'].name, _tableTableModule2['default'].name]);
 
 	exports['default'] = ebpUI;
 	module.exports = exports['default'];
@@ -376,7 +384,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	               value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -395,8 +403,24 @@
 
 	var _directivesEbpNavbarDirective2 = _interopRequireDefault(_directivesEbpNavbarDirective);
 
+	var _directivesEbpSidebarDirective = __webpack_require__(10);
+
+	var _directivesEbpSidebarDirective2 = _interopRequireDefault(_directivesEbpSidebarDirective);
+
+	var _directivesEbpFrameworkContainerDirective = __webpack_require__(11);
+
+	var _directivesEbpFrameworkContainerDirective2 = _interopRequireDefault(_directivesEbpFrameworkContainerDirective);
+
+	var _directivesEbpSidenavDirective = __webpack_require__(12);
+
+	var _directivesEbpSidenavDirective2 = _interopRequireDefault(_directivesEbpSidenavDirective);
+
+	var _directivesEbpUiContentDirective = __webpack_require__(13);
+
+	var _directivesEbpUiContentDirective2 = _interopRequireDefault(_directivesEbpUiContentDirective);
+
 	var frameworkModule = angular.module('ebpUI.framework', []);
-	frameworkModule.directive(config.directiveNames.ebpFramework, _directivesEbpFrameworkDirective2['default']).directive(config.directiveNames.ebpNavbar, _directivesEbpNavbarDirective2['default']).run();
+	frameworkModule.directive(config.directiveNames.ebpFramework, _directivesEbpFrameworkDirective2['default']).directive(config.directiveNames.ebpNavbar, _directivesEbpNavbarDirective2['default']).directive(config.directiveNames.ebpSidebar, _directivesEbpSidebarDirective2['default']).directive(config.directiveNames.ebpFrameworkContainer, _directivesEbpFrameworkContainerDirective2['default']).directive(config.directiveNames.ebpSidenav, _directivesEbpSidenavDirective2['default']).directive(config.directiveNames.ebpUiContent, _directivesEbpUiContentDirective2['default']).run();
 
 	exports['default'] = frameworkModule;
 	module.exports = exports['default'];
@@ -411,11 +435,15 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 	var directiveNames = {
-	  ebpFramework: 'ebpFramework',
-	  ebpNavbar: 'ebpNavbar'
+	    ebpFramework: 'ebpFramework',
+	    ebpNavbar: 'ebpNavbar',
+	    ebpSidebar: 'ebpSidebar',
+	    ebpSidenav: 'ebpSidenav',
+	    ebpFrameworkContainer: 'ebpFrameworkContainer',
+	    ebpUiContent: 'ebpUiContent'
 	};
 	exports.directiveNames = directiveNames;
 
@@ -432,6 +460,7 @@
 	    value: true
 	});
 	function EbpFrameworkDirectiveFactory() {
+	    'ngInject';
 	    function linkFunc(scope, elem, attrs) {
 	        var themeName = '';
 	        attrs.$observe('theme', function (theme) {
@@ -467,7 +496,9 @@
 	    value: true
 	});
 	function EbpNavbarDirectiveFactory() {
-	    function linkFunc() {}
+	    function linkFunc(scope, elem) {
+	        elem.addClass('ebp-navbar');
+	    }
 	    var directive = {
 	        restrict: 'AE',
 	        link: linkFunc
@@ -478,5 +509,396 @@
 	exports['default'] = EbpNavbarDirectiveFactory;
 	module.exports = exports['default'];
 
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/13.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	function EbpSidebarDirectiveFactory() {
+	    function linkFunc(scope, elem, attrs) {
+	        attrs.$observe('layout', function (layout) {
+	            if (layout) {
+	                elem.addClass('ebp-sidebar-' + layout);
+	            }
+	        });
+	        elem.addClass('ebp-sidebar');
+	    }
+	    var directive = {
+	        restrict: 'AE',
+	        link: linkFunc
+	    };
+
+	    return directive;
+	}
+
+	exports['default'] = EbpSidebarDirectiveFactory;
+	module.exports = exports['default'];
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/13.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	function EbpFrameworkContainerDirectiveFactory() {
+	    function linkFunc(scope, elem) {
+	        elem.addClass('ebp-framework-container');
+	    }
+	    var directive = {
+	        restrict: 'AE',
+	        link: linkFunc
+	    };
+
+	    return directive;
+	}
+
+	exports['default'] = EbpFrameworkContainerDirectiveFactory;
+	module.exports = exports['default'];
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/13.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function bindData(scope, sideNav, ngModel) {
+	    if (!ngModel) {
+	        return;
+	    }
+	    scope.$watch(function () {
+	        return ngModel.$modelValue;
+	    }, function (modelValue) {
+	        sideNav.navs = modelValue || [];
+	    });
+	}
+
+	function linkFunc(scope, elem, attrs, vm) {
+	    var sideNav = scope.$ebpSideNav;
+	    var themeName = '';
+	    var ngModel = vm[0];
+	    attrs.$observe('theme', function (theme) {
+	        elem.removeClass(themeName);
+	        if (theme) {
+	            themeName = 'ebp-sidenav-' + theme;
+	            elem.addClass(themeName);
+	        }
+	    });
+	    bindData(scope, sideNav, ngModel);
+	    elem.addClass('ebp-sidenav-a');
+	}
+
+	function EbpSidenavDirectiveFactory() {
+	    var directive = {
+	        restrict: 'A',
+	        link: linkFunc,
+	        require: ['?ngModel'],
+	        replace: true,
+	        transclude: true,
+	        controller: SideNavController,
+	        controllerAs: '$ebpSideNav',
+	        templateUrl: 'src/framework/templates/ebp_sidenav.tpl.html'
+	    };
+	    return directive;
+	}
+
+	var SideNavController = function SideNavController() {
+	    _classCallCheck(this, SideNavController);
+
+	    this.navs = [];
+	};
+
+	exports['default'] = EbpSidenavDirectiveFactory;
+	module.exports = exports['default'];
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/14.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	function EbpUIContentDirectiveFactory() {
+	    function linkFunc(scope, elem) {
+	        elem.addClass('ebp-ui-content');
+	    }
+	    var directive = {
+	        restrict: 'AE',
+	        link: linkFunc
+	    };
+
+	    return directive;
+	}
+
+	exports['default'] = EbpUIContentDirectiveFactory;
+	module.exports = exports['default'];
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by yao on 15/12/16.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	var _config = __webpack_require__(15);
+
+	var config = _interopRequireWildcard(_config);
+
+	var _directivesEbpListviewDirective = __webpack_require__(16);
+
+	var _directivesEbpListviewDirective2 = _interopRequireDefault(_directivesEbpListviewDirective);
+
+	var _directivesToolbarDirective = __webpack_require__(17);
+
+	var _directivesToolbarDirective2 = _interopRequireDefault(_directivesToolbarDirective);
+
+	var listViewModule = angular.module('ebpUI.listview', []);
+
+	listViewModule.directive(config.directiveNames.ebpListviewToolbar, _directivesToolbarDirective2['default']).directive(config.directiveNames.ebpListview, _directivesEbpListviewDirective2['default']);
+
+	exports['default'] = listViewModule;
+	module.exports = exports['default'];
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/16.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var directiveNames = {
+	  ebpListview: 'ebpListview',
+	  ebpListviewToolbar: 'ebpListviewToolbar'
+	};
+	exports.directiveNames = directiveNames;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/16.
+	 */
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function compileFunc(tElem) {
+	    tElem.append(angular.element('<div>').attr({
+	        'ng-include': '$ebpList.viewTpl'
+	    }));
+	    return {
+	        post: function post(scope, elem) {
+	            elem.addClass('ebp-listview');
+	        }
+	    };
+	}
+
+	function EbpListViewDirectiveFactory() {
+	    var directive = {
+	        restrict: 'AE',
+	        compile: compileFunc,
+	        scope: true,
+	        controller: ListViewController,
+	        controllerAs: '$ebpList'
+	    };
+
+	    return directive;
+	}
+
+	var ListViewController = (function () {
+	    function ListViewController($element, $attrs) {
+	        'ngInject';
+
+	        _classCallCheck(this, ListViewController);
+
+	        this.$el = $element;
+	        this.view = $attrs.view || 'table';
+	    }
+
+	    _createClass(ListViewController, [{
+	        key: 'initToolbar',
+	        value: function initToolbar(toolbar) {
+	            this.$el.prepend(toolbar);
+	        }
+	    }, {
+	        key: 'changeView',
+	        value: function changeView(view) {
+	            this.view = view;
+	        }
+	    }, {
+	        key: 'viewTpl',
+	        get: function get() {
+	            return 'src/listview/templates/' + this.view + '.tpl.html';
+	        }
+	    }]);
+
+	    return ListViewController;
+	})();
+
+	exports['default'] = EbpListViewDirectiveFactory;
+	module.exports = exports['default'];
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by yao on 15/12/16.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _configJs = __webpack_require__(15);
+
+	function linkFunc(scope, elem) {
+	    elem.addClass('ebp-listview-toolbar');
+	}
+
+	function EbpListViewToolbarDirectiveFactory() {
+	    var directive = {
+	        restrict: 'AE',
+	        require: '^' + _configJs.directiveNames.ebpListview,
+	        scope: false,
+	        link: linkFunc
+	    };
+
+	    return directive;
+	}
+
+	exports['default'] = EbpListViewToolbarDirectiveFactory;
+	module.exports = exports['default'];
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by yao on 15/12/17.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	var _config = __webpack_require__(19);
+
+	var config = _interopRequireWildcard(_config);
+
+	var _directivesEbpTableDirective = __webpack_require__(20);
+
+	var _directivesEbpTableDirective2 = _interopRequireDefault(_directivesEbpTableDirective);
+
+	var tableModule = angular.module('ebpUI.table', []);
+	tableModule.directive(config.directiveNames.ebpTable, _directivesEbpTableDirective2['default']);
+
+	exports['default'] = tableModule;
+	module.exports = exports['default'];
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/16.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var directiveNames = {
+	  ebpTable: 'ebpTable'
+	};
+	exports.directiveNames = directiveNames;
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by yao on 15/12/17.
+	 */
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	function linkFunc() {}
+
+	function EbpTableDirectiveFactory() {
+	    var directive = {
+	        restrict: 'AE',
+	        templateUrl: 'src/table/templates/ebpTable.tpl.html',
+	        link: linkFunc
+	    };
+
+	    return directive;
+	}
+
+	exports['default'] = EbpTableDirectiveFactory;
+	module.exports = exports['default'];
+
 /***/ }
 /******/ ]);
+angular.module("ebp-ui").run(["$templateCache", function($templateCache) {$templateCache.put("app/src/framework/templates/ebp_sidenav.tpl.html","<aside ebp-sidebar=\"\" class=\"ebp-sidenav\"><div ng-transclude=\"\"></div><div class=\"ebp-sidenav-inner\"><div class=\"ebp-sidenavs\"><nav class=\"ebp-nav\"><ul><li ui-sref-active=\"active\" ng-repeat=\"nav in $ebpSideNav.navs\"><a ui-sref=\"{{nav.sref}}\" class=\"ebp-nav-link\"><i class=\"ebp-icon\" ng-class=\"nav.iconClass\"></i><div class=\"ebp-nav-title\">{{nav.title}}</div></a></li></ul></nav></div></div></aside>");
+$templateCache.put("app/src/listview/templates/grid.tpl.html","<div><div class=\"col-xs-3\" style=\"padding: 40px\" ng-repeat-start=\"i in [1,2,3]\"><img src=\"assets/images/logo.svg\" width=\"100%\" height=\"100px\"></div><div class=\"col-xs-3\" style=\"padding: 40px\"><img src=\"assets/images/bower-logo.svg\" width=\"100%\" height=\"100px\"></div><div class=\"col-xs-3\" style=\"padding: 40px\" ng-repeat-end=\"\"><img src=\"assets/images/github.svg\" width=\"100%\" height=\"100px\"></div></div>");
+$templateCache.put("app/src/listview/templates/table.tpl.html","<div ebp-table=\"\"></div>");
+$templateCache.put("app/src/table/templates/ebpTable.tpl.html","<div class=\"ebp-table\"><div class=\"ebp-table-header\"><div class=\"ebp-table-header-wrapper\"><table><colgroup><col><col><col><col></colgroup><thead><tr><th class=\"columnheader\">角色名称</th><th class=\"columnheader\">角色编码</th><th class=\"columnheader\">排序号</th><th class=\"columnheader\">操作</th></tr></thead></table></div></div><div class=\"ebp-table-content\"><table class=\"table-striped\"><colgroup><col><col><col><col></colgroup><tbody><tr><td class=\"tablecell\">系统管理员</td><td class=\"tablecell\">00001</td><td class=\"tablecell\">51</td><td class=\"tablecell operation-col\"><i class=\"ebp-icon fa fa-pencil\" style=\"color: #478FCA\"></i> <i class=\"ebp-icon fa fa-user\" style=\"color: #777\"></i> <i class=\"ebp-icon fa fa-cogs\" style=\"color: #FF892A\"></i> <i class=\"ebp-icon fa fa-trash\" style=\"color: #DD5A43\"></i></td></tr><tr><td class=\"tablecell\">部门主管</td><td class=\"tablecell\">00005</td><td class=\"tablecell\">6</td><td class=\"tablecell operation-col\"><i class=\"ebp-icon fa fa-pencil\" style=\"color: #478FCA\"></i> <i class=\"ebp-icon fa fa-user\" style=\"color: #777\"></i> <i class=\"ebp-icon fa fa-cogs\" style=\"color: #FF892A\"></i> <i class=\"ebp-icon fa fa-trash\" style=\"color: #DD5A43\"></i></td></tr><tr><td class=\"tablecell\">人事经理</td><td class=\"tablecell\">00010</td><td class=\"tablecell\">15</td><td class=\"tablecell operation-col\"><i class=\"ebp-icon fa fa-pencil\" style=\"color: #478FCA\"></i> <i class=\"ebp-icon fa fa-user\" style=\"color: #777\"></i> <i class=\"ebp-icon fa fa-cogs\" style=\"color: #FF892A\"></i> <i class=\"ebp-icon fa fa-trash\" style=\"color: #DD5A43\"></i></td></tr><tr><td class=\"tablecell\">副院长</td><td class=\"tablecell\">00015</td><td class=\"tablecell\">1</td><td class=\"tablecell operation-col\"><i class=\"ebp-icon fa fa-pencil\" style=\"color: #478FCA\"></i> <i class=\"ebp-icon fa fa-user\" style=\"color: #777\"></i> <i class=\"ebp-icon fa fa-cogs\" style=\"color: #FF892A\"></i> <i class=\"ebp-icon fa fa-trash\" style=\"color: #DD5A43\"></i></td></tr></tbody></table></div><div class=\"ebp-table-bottom\"><table><tbody><tr><td class=\"ebp-operations\"><i class=\"ebp-icon fa fa-plus-circle\" style=\"color: #A069C3\"></i> <i class=\"ebp-icon fa fa-pencil\" style=\"color: #478FCA\"></i> <i class=\"ebp-icon fa fa-search-plus\" style=\"color: #777\"></i> <i class=\"ebp-icon fa fa-trash-o\" style=\"color: #DD5A43\"></i> <i>|</i> <i class=\"ebp-icon fa fa-search\" style=\"color: #FF892A\"></i> <i class=\"ebp-icon fa fa-refresh\" style=\"color: #69AA46\"></i></td><td class=\"ebp-table-pagination text-center\"><i class=\"ebp-icon fa fa-fw fa-angle-double-left\"></i> <i class=\"ebp-icon fa fa-fw fa-angle-left\"></i> <span>|</span> <span>第<input type=\"text\" class=\"text-center\" size=\"2\" value=\"1\">/3页</span> <span>|</span> <i class=\"ebp-icon fa fa-fw fa-angle-right\"></i> <i class=\"ebp-icon fa fa-fw fa-angle-double-right\"></i></td><td class=\"text-right\">显示第1-10条记录, 共23 条记录</td></tr></tbody></table></div></div>");}]);

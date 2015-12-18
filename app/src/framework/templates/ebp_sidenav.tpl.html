@@ -1,0 +1,17 @@
+<aside ebp-sidebar class="ebp-sidenav">
+    <div ng-transclude></div>
+    <div class="ebp-sidenav-inner">
+        <div class="ebp-sidenavs">
+            <nav class="ebp-nav">
+                <ul>
+                    <li ui-sref-active="active" ng-repeat="nav in $ebpSideNav.navs">
+                        <a ui-sref="{{nav.sref}}" class="ebp-nav-link">
+                            <i class="ebp-icon" ng-class="nav.iconClass"></i>
+                            <div class="ebp-nav-title">{{nav.title}}</div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</aside>

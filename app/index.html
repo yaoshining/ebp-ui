@@ -29,7 +29,9 @@
                     <h2>API参考手册</h2>
                     <ul class="sub-navs">
                         <li>
-                            <a ui-sref="layout">布局</a>
+                            <a ui-sref="layout">
+                                布局
+                            </a>
                             <ul class="sub-navs">
                                 <li ui-sref-active="active">
                                     <a ui-sref="layout.intro">简介</a>
@@ -50,6 +52,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a ui-sref="listview">列表</a>
+                            <ul class="sub-navs">
+                                <li ui-sref-active="active">
+                                    <a ui-sref="listview.intro">简介</a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="listview.components">列表组件</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -59,6 +72,14 @@
         <div ebp-layout>
             <div class="site-navbar" ebp-layout-container="64px">
                 <span class="site-breadcrumb">Angular EBP UI</span>
+                <span class="pull-right">
+                    <a href="https://github.com/yaoshining/ebp-ui" style="margin-right: 10px">
+                        <img src="assets/images/bower-logo.svg" width="24" height="24" />
+                    </a>
+                    <a href="https://github.com/yaoshining/ebp-ui">
+                        <img src="assets/images/github.svg" width="24" height="24" />
+                    </a>
+                </span>
             </div>
             <div class="site-content" ebp-layout-container>
                 <div ui-view></div>

@@ -37,6 +37,7 @@
   "overwrites": {},
   "devDependencies": {
     "angular-ui-router": "~0.2.15",
-    "bootstrap-sass-official": "~3.3.5"
+    "bootstrap-sass-official": "~3.3.5",
+    "font-awesome": "~4.5.0"
   }
 }
