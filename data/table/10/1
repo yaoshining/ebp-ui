@@ -1,0 +1,52 @@
+[{
+  "name": "系统管理员",
+  "code": "00001",
+  "index": 51,
+  "img": "assets/images/recipes/blt.jpg",
+  "date": "2015-09-08"
+},{
+  "name": "部门主管",
+  "code": "00005",
+  "index": 6,
+  "img": "assets/images/recipes/breakfast.jpg"
+},{
+  "name": "人事经理",
+  "code": "00010",
+  "index": 15,
+  "img": "assets/images/recipes/burger.jpg"
+},{
+  "name": "副院长",
+  "code": "00015",
+  "index": 1,
+  "img": "assets/images/recipes/chocolate.jpg"
+},{
+  "name": "项目经理",
+  "code": "00020",
+  "index": 1,
+  "img": "assets/images/recipes/coffee.jpg"
+},{
+  "name": "职员",
+  "code": "00025",
+  "index": 20,
+  "img": "assets/images/recipes/crepes.jpg"
+},{
+  "name": "财务审计部主管",
+  "code": "00030",
+  "index": 10,
+  "img": "assets/images/recipes/eggs_benedict.jpg"
+},{
+  "name": "发展计划部主管",
+  "code": "00035",
+  "index": 11,
+  "img": "assets/images/recipes/ice_cream.jpg"
+},{
+  "name": "发展计划部签章人",
+  "code": "00040",
+  "index": 12,
+  "img": "assets/images/recipes/grilled_chicken_vegitables.jpg"
+},{
+  "name": "安全保密部长",
+  "code": "10001",
+  "index": 1000,
+  "img": "assets/images/recipes/indian_platter.jpg"
+}]

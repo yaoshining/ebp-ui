@@ -9,7 +9,20 @@ class ComponentsController {
         };
 
         $scope.listview = {
-            data: this.sidebarData
+            countUrl: '/data/table/totalcount',
+            data: this.listData,
+            datasource: {
+                //url: '/data/list',
+                url: '/data/table/:maxSize/:pageNo',
+                params: {
+                    id: '@name'
+                }
+            },
+            events: {
+                click: () => {
+                    alert('点击');
+                }
+            }
         };
 
         $scope.alert = (text) => {
@@ -34,23 +47,7 @@ class ComponentsController {
     }
 
     get listData() {
-        return [{
-            name: '系统管理员',
-            code: '00001',
-            index: 51
-        },{
-            name: '部门主管',
-            code: '00005',
-            index: 6
-        },{
-            name: '人事经理',
-            code: '00010',
-            index: 15
-        },{
-            name: '副院长',
-            code: '00015',
-            index: 1
-        }];
+        return [];
     }
 }
 

@@ -1,11 +1,23 @@
-<div>
-    <div class="col-xs-3" style="padding: 40px" ng-repeat-start="i in [1,2,3]">
-        <img src="assets/images/logo.svg" width="100%" height="100px" />
-    </div>
-    <div class="col-xs-3" style="padding: 40px">
-        <img src="assets/images/bower-logo.svg" width="100%" height="100px" />
-    </div>
-    <div class="col-xs-3" style="padding: 40px" ng-repeat-end>
-        <img src="assets/images/github.svg" width="100%" height="100px" />
-    </div>
+<div ebp-listview-grid settings="$ebpList.settings.grid">
+	<ul>
+		<li ng-repeat="item in $ebpList.data">
+			<div ebp-listview-item class="with-title" ng-class="{editing: $ebpList.editing, 'ebp-dirty': $ebpListItem.isDirty}">
+				<div class="poster-image" ng-style="{height: $grid.itemHeight}">
+					<img ng-src="{{$ebpListItem.uploader.imageFile.url || item.img}}" ng-if="item.img || $ebpListItem.uploader.imageFile" />
+					<div class="ebp-overlay" ng-hide="$ebpList.editing"></div>
+					<label class="poster-uploader" ng-if="$ebpList.editing">
+						<div class="poster-uploader-inner">
+							<i class="upload-icon fa fa-image"></i>
+							<div>点击更换图片</div>
+							<input type="file" file-model="$ebpListItem.uploader.imageFile" />
+						</div>
+					</label>
+					<span class="ebp-listview-item-delete" ng-if="$ebpList.editing" ng-click="$ebpListItem.remove($event)"></span>
+				</div>
+				<div class="ebp-title" ng-focus="$ebpListItem._onTitleFocus($event)" ng-blur="$ebpListItem._onTitleBlur($event)">
+					{{item[$grid.title]}}
+				</div>
+			</div>
+		</li>
+	</ul>
 </div>

@@ -8,10 +8,17 @@ $fa-font-path: '../../bower_components/font-awesome/fonts';
 @import "framework/framework";
 @import "table/table";
 @import "listview/listview";
+@import "taskboard/taskboard";
 
 html, body {
   height: 100%;
   overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",sans-serif;
 }
 
 .site-sidebar {
@@ -111,4 +118,47 @@ html, body {
 .site-content {
   padding: 16px;
   overflow: auto;
+}
+//checkbox
+.ebp-checkbox {
+  & > input[type="checkbox"] {
+    display: none;
+    & + .lbl {
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      cursor: pointer;
+      &:before {
+        cursor: pointer;
+        font-family: FontAwesome;
+        content: '\a0';
+        border: 1px solid #c8c8c8;
+        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        display: inline-block;
+        text-align: center;
+        height: 16px;
+        line-height: 14px;
+        min-width: 16px;
+        margin-right: 1px;
+        position: relative;
+        vertical-align: middle;
+        color: #32a3ce;
+        font-size: 12px;
+      }
+
+      &:hover {
+        &:before {
+          border-color: #ff893c;
+        }
+      }
+    }
+
+    &:checked {
+      & + .lbl {
+        &:before {
+          content: '\f00c';
+        }
+      }
+    }
+  }
 }

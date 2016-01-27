@@ -3,22 +3,26 @@ $sidenav-width: 80px;
 $sidenav-bgColor: #293038;
 $sidenav-color: #fff;
 .ebp-framework {
-  display: table;
+  display: block;
   position: relative;
   width: 100%;
   height: 100%;
+  table-layout: fixed;
 }
 
 .ebp-navbar {
-  display: table-row;
+  display: block;
   height: $navbar-height;
   background-color: #003366;
 }
 
 .ebp-framework-container {
-  display: table-row;
+  display: block;
   height: 100%;
   overflow: hidden;
+  .ebp-navbar + & {
+    height: calc(100% - #{$navbar-height});
+  }
 }
 
 .ebp-sidebar {
@@ -146,6 +150,9 @@ $ebp-content-sidebar-bgColor: #EAEDF1;
   .ebp-content-main {
     height: 100%;
     padding: 15px;
+    &.scrollable {
+      overflow: auto;
+    }
   }
 }
 

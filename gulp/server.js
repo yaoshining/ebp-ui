@@ -9,6 +9,7 @@ var conf = require('./conf');
 var browserSync = require('browser-sync');
 
 var browserSyncSpa = require('browser-sync-spa');
+var proxyMiddleware = require('http-proxy-middleware');
 var util = require('util');
 
 function browserSyncInit(baseDir, browser) {
@@ -17,7 +18,8 @@ function browserSyncInit(baseDir, browser) {
     var routes = null;
     if (baseDir === conf.paths.app || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.app) !== -1)) {
         routes = {
-            '/bower_components': 'bower_components'
+            '/bower_components': 'bower_components',
+            '/data': 'data'
         };
     }
 
@@ -33,7 +35,9 @@ function browserSyncInit(baseDir, browser) {
      *
      * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.0.5/README.md
      */
-    // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', proxyHost: 'jsonplaceholder.typicode.com'});
+    //server.middleware = proxyMiddleware('/data', {
+    //    target: 'http://localhost:8080'
+    //});
 
     browserSync.instance = browserSync.init({
         startPath: '/',

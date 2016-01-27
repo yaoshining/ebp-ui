@@ -1,107 +1,81 @@
-<div class="ebp-table">
-    <div class="ebp-table-header">
-        <div class="ebp-table-header-wrapper">
-            <table>
-                <colgroup>
-                    <col>
-                    <col>
-                    <col>
-                    <col>
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th class="columnheader">角色名称</th>
-                        <th class="columnheader">角色编码</th>
-                        <th class="columnheader">排序号</th>
-                        <th class="columnheader">操作</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-    <div class="ebp-table-content">
-        <table class="table-striped">
-            <colgroup>
-                <col>
-                <col>
-                <col>
-                <col>
-            </colgroup>
-            <tbody>
-                <tr>
-                    <td class="tablecell">系统管理员</td>
-                    <td class="tablecell">00001</td>
-                    <td class="tablecell">51</td>
-                    <td class="tablecell operation-col">
-                        <i class="ebp-icon fa fa-pencil" style="color: #478FCA"></i>
-                        <i class="ebp-icon fa fa-user" style="color: #777"></i>
-                        <i class="ebp-icon fa fa-cogs" style="color: #FF892A"></i>
-                        <i class="ebp-icon fa fa-trash" style="color: #DD5A43"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tablecell">部门主管</td>
-                    <td class="tablecell">00005</td>
-                    <td class="tablecell">6</td>
-                    <td class="tablecell operation-col">
-                        <i class="ebp-icon fa fa-pencil" style="color: #478FCA"></i>
-                        <i class="ebp-icon fa fa-user" style="color: #777"></i>
-                        <i class="ebp-icon fa fa-cogs" style="color: #FF892A"></i>
-                        <i class="ebp-icon fa fa-trash" style="color: #DD5A43"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tablecell">人事经理</td>
-                    <td class="tablecell">00010</td>
-                    <td class="tablecell">15</td>
-                    <td class="tablecell operation-col">
-                        <i class="ebp-icon fa fa-pencil" style="color: #478FCA"></i>
-                        <i class="ebp-icon fa fa-user" style="color: #777"></i>
-                        <i class="ebp-icon fa fa-cogs" style="color: #FF892A"></i>
-                        <i class="ebp-icon fa fa-trash" style="color: #DD5A43"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tablecell">副院长</td>
-                    <td class="tablecell">00015</td>
-                    <td class="tablecell">1</td>
-                    <td class="tablecell operation-col">
-                        <i class="ebp-icon fa fa-pencil" style="color: #478FCA"></i>
-                        <i class="ebp-icon fa fa-user" style="color: #777"></i>
-                        <i class="ebp-icon fa fa-cogs" style="color: #FF892A"></i>
-                        <i class="ebp-icon fa fa-trash" style="color: #DD5A43"></i>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="ebp-table-bottom">
+<div class="ebp-table-header">
+    <div class="ebp-table-header-wrapper">
         <table>
-            <tbody>
+            <colgroup>
+                <col ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox'}">
+                <!-- <col> -->
+            </colgroup>
+            <thead>
                 <tr>
-                    <td class="ebp-operations">
-                        <i class="ebp-icon fa fa-plus-circle" style="color: #A069C3"></i>
-                        <i class="ebp-icon fa fa-pencil" style="color: #478FCA"></i>
-                        <i class="ebp-icon fa fa-search-plus" style="color: #777"></i>
-                        <i class="ebp-icon fa fa-trash-o" style="color: #DD5A43"></i>
-                        <i>|</i>
-                        <i class="ebp-icon fa fa-search" style="color: #FF892A"></i>
-                        <i class="ebp-icon fa fa-refresh" style="color: #69AA46"></i>
-                    </td>
-                    <td class="ebp-table-pagination text-center">
-                        <i class="ebp-icon fa fa-fw fa-angle-double-left"></i>
-                        <i class="ebp-icon fa fa-fw fa-angle-left"></i>
-                        <span>|</span>
-                        <span>第<input type="text" class="text-center" size="2" value="1" />/3页</span>
-                        <span>|</span>
-                        <i class="ebp-icon fa fa-fw fa-angle-right"></i>
-                        <i class="ebp-icon fa fa-fw fa-angle-double-right"></i>
-                    </td>
-                    <td class="text-right">
-                        显示第1-10条记录, 共23 条记录
-                    </td>
+                    <th ebp-table-columnheader class="columnheader" ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox', 'sorting': col.sorting, 'sortable': col.sortable}">
+                        <span ng-if="col.type !== 'checkbox'">
+                            {{col.title}}
+                        </span>
+                        <label class="ebp-checkbox" ng-if="col.type === 'checkbox'">
+                            <input type="checkbox" ng-model="$ebpTable.checkAll" />
+                            <span class="lbl"></span>
+                        </label>
+                        <span class="ebp-table-sort-icons" ng-if="col.sortable" ng-show="col.sorting">
+                            <span class="ebp-table-ico-sort sort-asc" ng-class="{'active': col.sorting === 'asc'}"></span>
+                            <span class="ebp-table-ico-sort sort-desc" ng-class="{'active': col.sorting === 'desc'}"></span>
+                        </span>
+                    </th>
                 </tr>
-            </tbody>
+            </thead>
         </table>
     </div>
+</div>
+<div class="ebp-table-content">
+    <table class="table-striped">
+        <colgroup>
+            <col ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox'}">
+        </colgroup>
+        <tbody>
+            <tr ebp-table-entry ng-repeat="item in $ebpTable.data">
+                <td class="tablecell" ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox', 'ebp-dirty': $ebpTableCell.isDirty}" ng-dblclick="$ebpTableCell.edit()">
+                    <span ng-if="col.type === 'field'">
+                        {{item[col.name]}}
+                    </span>
+                    <label class="ebp-checkbox" ng-if="col.type === 'checkbox'">
+                        <input type="checkbox" ng-model="$ebpEntry.$checked" />
+                        <span class="lbl"></span>
+                    </label>
+                    <div class="ebp-tablecell-input" ng-switch on="col.dataType" ng-if="$ebpTableCell.editing">
+                       <input class="ebp-tablecell-input-string" type="text" ng-switch-when="string" ng-model="item[col.name]"focus-me="$ebpTableCell.editing" ng-focus="$ebpTableCell._onFocus()" ng-blur="$ebpTableCell._onBlur()" />
+                       <input class="ebp-tablecell-input-number" type="number" ng-switch-when="number" ng-model="item[col.name]" focus-me="$ebpTableCell.editing" ng-focus="$ebpTableCell._onFocus()" ng-blur="$ebpTableCell._onBlur()" />
+                       <input class="ebp-tablecell-input-datepicker" type="string" ng-switch-when="date" ng-model="item[col.name]" focus-me="$ebpTableCell.editing" ng-focus="$ebpTableCell._onFocus()" ng-blur="$ebpTableCell._onBlur()" />
+                   </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="ebp-table-bottom">
+    <table>
+        <tbody>
+            <tr>
+                <td class="ebp-operations">
+                    <i class="ebp-icon fa fa-plus-circle" style="color: #A069C3"></i>
+                    <i class="ebp-icon fa fa-pencil" style="color: #478FCA"></i>
+                    <i class="ebp-icon fa fa-search-plus" style="color: #777"></i>
+                    <i class="ebp-icon fa fa-trash-o" style="color: #DD5A43" ng-click="$ebpTable.remove()"></i>
+                    <i>|</i>
+                    <i class="ebp-icon fa fa-search" style="color: #FF892A"></i>
+                    <i class="ebp-icon fa fa-refresh" style="color: #69AA46"></i>
+                </td>
+                <td class="ebp-table-pagination text-center">
+                    <i class="ebp-icon fa fa-fw fa-angle-double-left" ng-click="$ebpPager.first()" ng-class="{'disabled': $ebpPager.pageNo === 1}"></i>
+                    <i class="ebp-icon fa fa-fw fa-angle-left" ng-click="$ebpPager.prev()" ng-class="{'disabled': $ebpPager.pageNo === 1}"></i>
+                    <span>|</span>
+                    <span>第<input type="text" class="text-center" size="2" ng-model="$ebpPager.pageNo" />/{{$ebpPager.total}}页</span>
+                    <span>|</span>
+                    <i class="ebp-icon fa fa-fw fa-angle-right" ng-click="$ebpPager.next()" ng-class="{'disabled': $ebpPager.pageNo === $ebpPager.total}"></i>
+                    <i class="ebp-icon fa fa-fw fa-angle-double-right" ng-click="$ebpPager.last()" ng-class="{'disabled': $ebpPager.pageNo === $ebpPager.total}"></i>
+                </td>
+                <td class="text-right">
+                    显示第{{$ebpPager.from}}-{{$ebpPager.to}}条记录, 共{{$ebpPager.quantity}}条记录
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

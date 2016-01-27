@@ -3,5 +3,10 @@
  */
 export const directiveNames = {
     ebpListview: 'ebpListview',
-    ebpListviewToolbar: 'ebpListviewToolbar'
+    ebpListviewToolbar: 'ebpListviewToolbar',
+    ebpListviewSettings: 'ebpListviewSettings',
+    ebpListviewGrid: 'ebpListviewGrid',
+    ebpListviewCustom: 'ebpListviewCustom',
+    ebpListviewItem: 'ebpListviewItem',
+    ebpListviewOverlay: 'ebpListviewOverlay'
 };

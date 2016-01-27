@@ -68,10 +68,10 @@
                     </ul>
                 </nav>
             </div>
-            <div class="ebp-content-main">
-                <div ebp-listview>
+            <div class="ebp-content-main scrollable">
+                <div ebp-listview ng-model="listview.data" datasource="listview.datasource" view="grid">
                     <div ebp-listview-toolbar>
-                        <a class="btn btn-sm btn-primary" ng-click="alert('新增')">新增</a>
+                        <a class="btn btn-sm btn-primary" ng-click="$ebpList.add()">新增</a>
                         <a class="btn btn-sm btn-success" ng-click="alert('刷新权限')">刷新权限</a>
                         <a class="btn btn-sm btn-danger" ng-click="alert('刷新组织机构')">刷新组织机构</a>
                         <a class="btn btn-sm btn-info" ng-click="$ebpList.changeView('table')">
@@ -80,6 +80,50 @@
                         <a class="btn btn-sm btn-warning" ng-click="$ebpList.changeView('grid')">
                             <i class="fa fa-th"></i>
                         </a>
+                        <a class="btn btn-sm btn-link" ng-click="$ebpList.changeView('taskBoard')">
+                            自定义视图(看板)
+                        </a>
+                        <a class="btn btn-sm btn-primary" ng-click="$ebpList.refresh()">
+                            <i class="fa fa-refresh"></i>
+                        </a>
+                        <a href ng-click="$ebpPager.prev()">
+                            上一页  
+                        </a>
+                        <a href ng-click="$ebpPager.next()">
+                            下一页
+                        </a>
+                        <a class="btn btn-sm btn-warning" ng-click="$ebpList.sync()">
+                            同步
+                        </a>
+                    </div>
+                    <div ebp-listview-settings="table">
+                        <div ebp-table-coldefs>
+                            <div ebp-table-check-col></div>
+                            <div ebp-table-col="name" title="角色名称" sortable>
+                            </div>
+                            <div ebp-table-col="code" title="角色编码">
+                            </div>
+                            <div ebp-table-col="index" title="排序号" type="number">
+                            </div>
+                            <div ebp-table-col="date" title="日期" type="date">
+                            </div>
+                            <div ebp-table-col title="操作">
+                                <i class="ebp-icon fa fa-pencil" ng-click="$ebpEntry.edit()" style="color: #478FCA;font-size: 120%;margin-right: 8px"></i>
+                                <i class="ebp-icon fa fa-user" style="color: #777;font-size: 120%;margin-right: 8px"></i>
+                                <i class="ebp-icon fa fa-cogs" style="color: #FF892A;font-size: 120%;margin-right: 8px"></i>
+                                <i class="ebp-icon fa fa-trash" ng-click="$ebpEntry.remove()" style="color: #DD5A43;font-size: 120%;margin-right: 8px"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div ebp-listview-settings="grid" title="'name'" events="listview.events">
+                        <div ebp-listview-overlay>
+                            自定义<br />{{item.name}}<br />的遮罩层
+                        </div>
+                    </div>
+                    <div ebp-listview-custom="taskBoard" template-url="'src/framework/demo/taskboard.html'">
+                    </div>
+                    <div ebp-pagination-setting ng-model="listview.data" datasource="listview.datasource" count="listview.countUrl">
+                        
                     </div>
                 </div>
             </div>

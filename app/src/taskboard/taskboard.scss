@@ -1,0 +1,133 @@
+$ebp-taskgroup-borderColor: #307ecc;
+$ebp-taskgroup-heading-bgColor: #307ecc;
+
+.ebp-taskboard-container {
+	height: 100%;
+	border: 1px solid #eee;
+	padding: 15px;
+	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+	.ui-sortable-helper {
+	    transform: rotate(5deg);
+	}
+}
+
+.ebp-taskgroup {
+	border: 1px solid $ebp-taskgroup-borderColor;
+	display: inline-block;
+	width: 278px;
+	max-height: 100%;
+	margin-right: 15px;
+	vertical-align: top;
+	.ebp-taskgroup-header {
+		background-color: $ebp-taskgroup-heading-bgColor;
+		min-height: 38px;
+		padding-left: 12px;
+		color: #fff;
+		& .ebp-taskgroup-title {
+			margin: 0;
+			line-height: 36px;
+			font-weight: 400;
+		}
+	}
+
+	.ebp-taskgroup-body {
+		background-color: #fff;
+		min-height: 30px;
+		.ebp-task-list {
+			min-height: 30px;
+		}
+		.ebp-task {
+			background-color: #fff;
+			position: relative;
+			white-space: normal;
+			word-break: break-all;
+			padding: 10px 24px 10px 32px;
+			border-bottom: solid 1px #e1e1e1;
+			border-top: solid 1px #fff;
+			cursor: pointer;
+			line-height: 21px;
+			.ebp-checkbox {
+				position: absolute;
+				left: 8px;
+				top: 9px;
+			}
+
+			.ebp-task-title {
+				text-decoration: none;
+				&:hover, &:active, &:focus, &:visited {
+					color: inherit;
+				}
+			}
+
+			.ebp-task-badges {
+				.task-badge {
+					color: #acaba7;
+					font-size: 11px;
+					line-height: 27px;
+					margin-right: 7px;
+					border-radius: 3px;
+					&.badge-expire-due {
+						&, &:before {
+							color: #d9534f;
+						}
+					}
+					&.badge-todo-done {
+						&, &:before {
+							color: #5cb85c;
+						}
+					}
+					&:before {
+						font-size: 13px;
+						padding: 0 3px 0 0;
+						color: #b9b9b7;
+						margin-right: 3px;
+					}
+					&.task-label {
+						color: #fff;
+						line-height: 18px;
+						height: 18px;
+						padding: 0 5px;
+						font-size: 9px;
+						&.green-label {
+							background-color: #5eac82;
+							border: 1px #5eac82 solid;
+						}
+						&.orange-label {
+							background-color: #ef5e1b;
+							border: 1px #ef5e1b solid;
+						}
+						&.yellow-label {
+							background-color: #f0ad4e;
+							border: 1px #f0ad4e solid;
+						}
+						&.red-label {
+							background-color: #d9534f;
+							border: 1px #d9534f solid;
+						}
+					}
+				}
+			}
+		}
+		.add-task-btn {
+			padding: 5px 15px;
+			cursor: pointer;
+		}
+	}
+}
+
+.ebp-taskgroup-placeholder {
+	display: inline-block;
+	margin-right: 15px;
+	border: solid 1px #e1e1e1;
+	background: #f2f2ea;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, .1), inset 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.ebp-task-placeholder {
+	padding: 10px 5px;
+	background: #f2f2ea;
+	border-bottom: solid 1px transparent;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, .1), inset 0 0 10px rgba(0, 0, 0, .1);
+}
