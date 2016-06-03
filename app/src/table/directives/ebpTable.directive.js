@@ -45,7 +45,8 @@ class EbpTableController {
         'ngInject';
         let settings = $scope.$eval($attrs.settings);
         let datasource = $scope.$eval($attrs.datasource);
-        let pager = $scope.$eval($attrs.pager);
+        let pager = $scope.$eval($attrs.ebpPager);
+        console.log(pager);
         angular.extend(this, settings);
 		this.data = [];
         this.$entries = [];
