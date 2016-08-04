@@ -7,7 +7,7 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th ebp-table-columnheader class="columnheader" ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox', 'sorting': col.sorting, 'sortable': col.sortable}">
+                    <th ebp-table-columnheader class="column-header" ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox', 'sorting': col.sorting, 'sortable': col.sortable}">
                         <span ng-if="col.type !== 'checkbox'">
                             {{col.title}}
                         </span>

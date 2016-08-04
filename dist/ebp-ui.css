@@ -284,7 +284,7 @@
   .ebp-table col.check-col {
     width: 4em; }
 
-.ebp-table-header-wrapper .columnheader {
+.ebp-table-header-wrapper .column-header {
   position: relative;
   background-color: #f2f3f3;
   border-top: 1px solid #ccc;
@@ -294,38 +294,38 @@
   vertical-align: middle;
   color: #707070;
   height: 47px; }
-  .ebp-table-header-wrapper .columnheader.sortable {
+  .ebp-table-header-wrapper .column-header.sortable {
     cursor: pointer; }
-    .ebp-table-header-wrapper .columnheader.sortable:hover {
+    .ebp-table-header-wrapper .column-header.sortable:hover {
       color: #307ecc; }
-    .ebp-table-header-wrapper .columnheader.sortable.sorting {
+    .ebp-table-header-wrapper .column-header.sortable.sorting {
       color: #307ecc;
       background-image: -webkit-linear-gradient(#eff3f8 0, #e3e7ed 100%);
       background-image: linear-gradient(#eff3f8 0, #e3e7ed 100%); }
-  .ebp-table-header-wrapper .columnheader:last-child {
+  .ebp-table-header-wrapper .column-header:last-child {
     border-right: none; }
-  .ebp-table-header-wrapper .columnheader.check-col {
+  .ebp-table-header-wrapper .column-header.check-col {
     text-align: center;
     padding-left: 0;
     padding-right: 0; }
-  .ebp-table-header-wrapper .columnheader .ebp-table-sort-icons {
+  .ebp-table-header-wrapper .column-header .ebp-table-sort-icons {
     position: absolute;
     right: 0;
     overflow: hidden;
     width: 1em;
     line-height: 7px; }
-  .ebp-table-header-wrapper .columnheader .ebp-table-ico-sort {
+  .ebp-table-header-wrapper .column-header .ebp-table-ico-sort {
     position: relative;
     color: #BBB; }
-    .ebp-table-header-wrapper .columnheader .ebp-table-ico-sort:before {
+    .ebp-table-header-wrapper .column-header .ebp-table-ico-sort:before {
       display: inline;
       font-family: 'FontAwesome';
       font-size: 12px; }
-    .ebp-table-header-wrapper .columnheader .ebp-table-ico-sort.sort-asc:before {
+    .ebp-table-header-wrapper .column-header .ebp-table-ico-sort.sort-asc:before {
       content: '\f0d8'; }
-    .ebp-table-header-wrapper .columnheader .ebp-table-ico-sort.sort-desc:before {
+    .ebp-table-header-wrapper .column-header .ebp-table-ico-sort.sort-desc:before {
       content: '\f0d7'; }
-    .ebp-table-header-wrapper .columnheader .ebp-table-ico-sort.active {
+    .ebp-table-header-wrapper .column-header .ebp-table-ico-sort.active {
       color: #307ecc; }
 
 .ebp-table-content {
