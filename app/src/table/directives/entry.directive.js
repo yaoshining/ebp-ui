@@ -36,7 +36,7 @@ class EbpTableEntryController {
 
         Object.defineProperties(this, {
             isNew: {
-                get: () => typeof this.$model === 'object' && this.$model.constructor === Object
+                get: () => this.$model.$isNew
             }
         });
 	}

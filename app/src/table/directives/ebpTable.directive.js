@@ -164,7 +164,13 @@ class EbpTableController {
     }
 
     add() {
-        this.data.unshift({});
+        let newModel = {};
+        Object.defineProperties(newModel, {
+            $isNew: {
+                get: () => true
+            }
+        });
+        this.data.unshift(newModel);
     }
     
 }
