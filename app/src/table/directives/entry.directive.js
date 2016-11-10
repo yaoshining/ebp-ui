@@ -24,7 +24,7 @@ function EbpTableEntryDirectiveFactory() {
 
 class EbpTableEntryController {
 
-	constructor($scope, $controller, $resource) {
+	constructor($scope) {
 		'ngInject';
 		let $table = $scope.$ebpTable;
 		this.$model = $scope.item;
@@ -36,9 +36,7 @@ class EbpTableEntryController {
 
         Object.defineProperties(this, {
             isNew: {
-                get: () => {
-                    return !(Object.getPrototypeOf(this.$model) instanceof Object);
-                }
+                get: () => typeof this.$model === 'object' && this.$model.constructor === Object
             }
         });
 	}

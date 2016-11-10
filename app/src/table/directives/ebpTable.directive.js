@@ -41,12 +41,11 @@ function EbpTableDirectiveFactory() {
 }
 
 class EbpTableController {
-	constructor($scope, $attrs, $resource, $injector, $window) {
+	constructor($scope, $attrs, $resource, $window) {
         'ngInject';
         let settings = $scope.$eval($attrs.settings);
         let datasource = $scope.$eval($attrs.datasource);
         let pager = $scope.$eval($attrs.ebpPager);
-        console.log(pager);
         angular.extend(this, settings);
 		this.data = [];
         this.$entries = [];
