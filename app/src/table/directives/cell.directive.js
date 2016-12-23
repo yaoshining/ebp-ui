@@ -23,7 +23,7 @@ function EbpTableCellDirectiveFactory($compile, $interpolate) {
 	}
 
     let directive = {
-        restrict: 'C',
+        restrict: 'A',
         link: linkFunc,
         require: `^${directiveNames.ebpTableEntry}`,
         controller: TableCellController,

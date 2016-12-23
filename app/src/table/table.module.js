@@ -18,7 +18,7 @@ tableModule.directive(config.directiveNames.ebpTable, EbpTableDirectiveFactory)
            .directive(config.directiveNames.ebpTableCheckCol, EbpTableCheckColDirectiveFactory)
            .directive(config.directiveNames.ebpTableEntry, TableEntryDirectiveFactory)
            .directive(config.directiveNames.ebpTableColumnheader, ColumnHeaderDirectiveFactory)
-           .directive('tablecell', TableCellDirectiveFactory);
+           .directive('ebpTablecell', TableCellDirectiveFactory);
 
 
 export default tableModule;

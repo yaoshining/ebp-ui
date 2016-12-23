@@ -32,7 +32,7 @@
         </colgroup>
         <tbody>
             <tr ebp-table-entry ng-repeat="item in $ebpTable.data">
-                <td class="tablecell" ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox', 'ebp-dirty': $ebpTableCell.isDirty}" ng-dblclick="$ebpTableCell.edit()">
+                <td class="tablecell" ebp-tablecell ng-repeat="col in $ebpTable.colDefs.cols" ng-class="{'check-col': col.type === 'checkbox', 'ebp-dirty': $ebpTableCell.isDirty}" ng-dblclick="$ebpTableCell.edit()">
                     <span ng-if="col.type === 'field'">
                         {{item[col.name]}}
                     </span>
